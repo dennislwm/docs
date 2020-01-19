@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  teedy:
+    # altenative image
+    image: jdreinhardt/teedy
+    container_name: objTeedy
+    ports:
+      - 8080:8080
+    # use the environment variable HOSTDIR to specify a host directory
+    volumes:
+      - ${HOSTDIR}:/data

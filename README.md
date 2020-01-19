@@ -16,16 +16,15 @@ Teedy is an open source, lightweight document management system for individuals 
 
 ![New!](https://teedy.io/img/laptop-demo.png?20180301)
 
-Demo
-----
+## Demo
 
 A demo is available at [demo.teedy.io](https://demo.teedy.io)
+
 - Guest login is enabled with read access on all documents
 - "admin" login with "admin" password
-- "demo" login with "password" password 
+- "demo" login with "password" password
 
-Features
---------
+## Features
 
 - Responsive user interface
 - Optical character recognition
@@ -54,12 +53,12 @@ Features
 - [Bulk files importer](https://github.com/sismics/docs/tree/master/docs-importer) (single or scan mode)
 - Tested to one million documents
 
-Install with Docker
--------------------
+## Install with Docker
 
 A preconfigured Docker image is available, including OCR and media conversion tools, listening on port 8080. The database is an embedded H2 database but PostgreSQL is also supported for more performance.
 
 **The default admin password is "admin". Don't forget to change it before going to production.**
+
 - Master branch, can be unstable. Not recommended for production use: `sismics/docs:latest`
 - Latest stable version: `sismics/docs:v1.7`
 
@@ -67,10 +66,36 @@ The data directory is `/data`. Don't forget to mount a volume on it.
 
 To build external URL, the server is expecting a `DOCS_BASE_URL` environment variable (for example https://teedy.mycompany.com)
 
-Manual installation
--------------------
+## Install with Docker Compose
+
+An alternative Docker image is available: `jdreinhardt/teedy`
+
+### Example Usage
+
+If you have npm installed, the scripts in file _package.json_ can be used to execute the _docker-compose.yml_ file as follows:
+
+     $ HOSTDIR='d:\docker\teedy' npm run up
+
+If you don't have npm installed, then execute the following command instead:
+
+     $ HOSTDIR='d:\docker\teedy' docker-compose up -d
+
+In your web browser, you should be able to navigate to **http://localhost:8080**, and login in as **admin**.
+
+There are several useful npm scripts as follows:
+
+     $ npm run build <image-name> <dir>   # builds an image with a Dockerfile file in the specified directory
+     $ npm run up                         # pulls an image with a docker-compose.yml file and creates and starts a Docker container
+     $ npm run clean                      # stops and removes container and image
+     $ npm run down                       # stops and removes container
+     $ npm run stop                       # stops container
+     $ npm run start                      # starts a stopped container
+     $ npm run restart                    # stops and restart a container
+
+## Manual installation
 
 #### Requirements
+
 - Java 8 with the [Java Cryptography Extension](http://www.oracle.com/technetwork/java/javase/downloads/jce-7-download-432124.html)
 - Tesseract 3 or 4 for OCR
 - ffmpeg for video thumbnails
@@ -78,19 +103,19 @@ Manual installation
 - A webapp server like [Jetty](http://eclipse.org/jetty/) or [Tomcat](http://tomcat.apache.org/)
 
 #### Download
-The latest release is downloadable here: <https://github.com/sismics/docs/releases> in WAR format. 
+
+The latest release is downloadable here: <https://github.com/sismics/docs/releases> in WAR format.
 **The default admin password is "admin". Don't forget to change it before going to production.**
 
-How to build Teedy from the sources
-----------------------------------
+## How to build Teedy from the sources
 
 Prerequisites: JDK 8 with JCE, Maven 3, Tesseract 3 or 4
 
 Teedy is organized in several Maven modules:
 
-  - docs-core
-  - docs-web
-  - docs-web-common
+- docs-core
+- docs-web
+- docs-web-common
 
 First off, clone the repository: `git clone git://github.com/sismics/docs.git`
 or download the sources from GitHub.
@@ -115,15 +140,13 @@ From the `docs-web` directory:
 
 You will get your deployable WAR in the `docs-web/target` directory.
 
-Contributing
-------------
+## Contributing
 
 All contributions are more than welcomed. Contributions may close an issue, fix a bug (reported or not reported), improve the existing code, add new feature, and so on.
 
 The `master` branch is the default and base branch for the project. It is used for development and all Pull Requests should go there.
 
-License
--------
+## License
 
 Teedy is released under the terms of the GPL license. See `COPYING` for more
 information or see <http://opensource.org/licenses/GPL-2.0>.

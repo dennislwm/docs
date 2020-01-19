@@ -1,0 +1,28 @@
+{
+  "name": "docs",
+  "version": "1.7.0",
+  "description": "Lightweight document management system packed with all the features you can expect from big expensive solutions",
+  "main": "index.js",
+  "scripts": {
+    "build": "docker image build -t ",
+    "up": "docker-compose up -d && echo 'localhost:8080' && echo 'User-admin Pass-admin'",
+    "clean": "docker-compose down --rmi all",
+    "down": "docker-compose down",
+    "stop": "docker-compose stop",
+    "start": "docker-compose start && echo 'localhost:8080' && echo 'User-admin Pass-admin'",
+    "restart": "docker-compose restart && echo 'localhost:8080' && echo 'User-admin Pass-admin'"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dennislwm/docs.git"
+  },
+  "keywords": [
+    "teedy"
+  ],
+  "author": "dennislwm",
+  "license": "GPL-2.0",
+  "bugs": {
+    "url": "https://github.com/dennislwm/docs/issues"
+  },
+  "homepage": "https://github.com/dennislwm/docs#readme"
+}
